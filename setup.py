@@ -3,7 +3,7 @@ from setuptools import setup, find_packages
 setup(
     name="fitos",
     version="0.1",
-    packages=find_packages(),
+    packages=["fitos"],
     install_requires=[
         'datasets',
     ]
