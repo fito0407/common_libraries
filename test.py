@@ -1,7 +1,7 @@
 import pandas as pd
 from datasets import Dataset, DatasetDict
 import os
-import fitos.module_data as fm
+import fitos.fito_module_data as fm
 
 folder_path = 'docs'
 original_dataset1 = Dataset.from_pandas(pd.read_csv(os.path.join(folder_path, 'correlation_df.csv')))
