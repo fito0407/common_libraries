@@ -2,6 +2,17 @@ import random
 from datasets import DatasetDict
 
 def reduce_dataset(dataset_original, percentage_target):
+    """
+        It reduces a dataset to certain percentage
+
+        Args:
+            dataset_original: The dataset.
+
+            percentage_target: New ds = p% of old ds.
+
+        Returns:
+            dict: The reduced dataset.
+    """
     answer= dataset_original
     if (percentage_target>=0) & (percentage_target<100):
       subset_size = max(1, int(percentage_target/100 * len(dataset_original)))
@@ -10,6 +21,17 @@ def reduce_dataset(dataset_original, percentage_target):
     return answer
 
 def reduce_datasetdictionary(datasetdictionary_original, percentage_target):
+    """
+            It reduces each dataset of a dataset dictionary to certain percentage
+
+            Args:
+                dataset_original: The dataset.
+
+                percentage_target: New ds = p% of old ds.
+
+            Returns:
+                dict: The reduced dataset dictionary.
+    """
     answer= DatasetDict()
     for key in datasetdictionary_original:
         dataset_original= datasetdictionary_original[key]
