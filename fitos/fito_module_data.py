@@ -1,5 +1,7 @@
 import random
 from datasets import DatasetDict
+from pyarrow import dictionary
+
 
 def reduce_dataset(dataset_original, percentage_target):
     """
@@ -37,4 +39,27 @@ def reduce_datasetdictionary(datasetdictionary_original, percentage_target):
         dataset_original= datasetdictionary_original[key]
         dataset_reduced= reduce_dataset(dataset_original, percentage_target)
         answer[key] = dataset_reduced
+    return answer
+
+def get_maxlenght_datasetdictionary(datasetdictionary):
+    answer = {}
+    for key_superior, dataset in datasetdictionary.items():
+        answer[key_superior] = {}
+        dict_by_columns = dataset.to_dict()
+        for column_name  in dict_by_columns:
+            values=dict_by_columns[column_name]
+            answer[key_superior][column_name] = max_list_elements(values)
+    return answer
+
+def max_list_elements(list_items):
+    answer=0
+    if list_items is not None:
+        if any(isinstance(item, list) for item in list_items):
+            buffer=[]
+            for item in list_items:
+                buffer.append(max_list_elements(item))
+            answer = max(buffer)
+        else:
+            answer=len(list_items)
+
     return answer
