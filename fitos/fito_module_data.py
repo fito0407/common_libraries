@@ -45,16 +45,6 @@ def get_maxlenght_datasetdictionary(datasetdictionary):
     answer = {}
     for key_superior, dataset in datasetdictionary.items():
         answer[key_superior] = {}
-        dict_by_columns = dataset.to_dict()
-        for column_name  in dict_by_columns:
-            values=dict_by_columns[column_name]
-            answer[key_superior][column_name] = max_list_elements(values)
-    return answer
-
-def get_maxlenght_datasetdictionary_fast(datasetdictionary):
-    answer = {}
-    for key_superior, dataset in datasetdictionary.items():
-        answer[key_superior] = {}
 
         columns_dict = {col: dataset[col] for col in dataset.column_names}
         for column_name, values in columns_dict.items():

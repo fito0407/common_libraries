@@ -41,6 +41,5 @@ datasetdict = DatasetDict({
     ,"validation": Dataset.from_dict(sample)
 })
 
-#aa=fm.get_maxlenght_datasetdictionary(datasetdict)
-aa=fm.get_maxlenght_datasetdictionary_fast(datasetdict)
+aa=fm.get_maxlenght_datasetdictionary(datasetdict)
 a=1
