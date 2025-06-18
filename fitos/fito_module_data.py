@@ -63,3 +63,26 @@ def max_list_elements(list_items):
             answer=len(list_items)
 
     return answer
+
+def get_minlenght_datasetdictionary(datasetdictionary):
+    answer = {}
+    for key_superior, dataset in datasetdictionary.items():
+        answer[key_superior] = {}
+
+        columns_dict = {col: dataset[col] for col in dataset.column_names}
+        for column_name, values in columns_dict.items():
+            answer[key_superior][column_name] = min_list_elements(values)
+    return answer
+
+def min_list_elements(list_items):
+    answer=0
+    if list_items is not None:
+        if any(isinstance(item, list) for item in list_items):
+            buffer=[]
+            for item in list_items:
+                buffer.append(min_list_elements(item))
+            answer = min(buffer)
+        else:
+            answer=len(list_items)
+
+    return answer

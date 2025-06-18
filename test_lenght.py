@@ -24,7 +24,7 @@ sample ={
 			[18,24,75],
 			[18,24],
 			[18,24],
-			[18,24]
+			[18]
 		],
 		[
 			[18,24,35,18,24],
@@ -32,7 +32,6 @@ sample ={
 			[18,24,35],
 		]
 	]
-
 }
 
 
@@ -41,5 +40,6 @@ datasetdict = DatasetDict({
     ,"validation": Dataset.from_dict(sample)
 })
 
-aa=fm.get_maxlenght_datasetdictionary(datasetdict)
+max_lenght=fm.get_maxlenght_datasetdictionary(datasetdict)
+min_lenght=fm.get_minlenght_datasetdictionary(datasetdict)
 a=1
