@@ -21,8 +21,6 @@ class MyEarlyStoppingCallback(transformers.TrainerCallback):
             self.patience_counter = 0
         else:
             self.patience_counter += 1
-            print(f"No improvement for {self.patience_counter} evaluations")
 
             if self.patience_counter >= self.early_stopping_patience:
-                print("Early stopping triggered!")
                 control.should_training_stop = True
