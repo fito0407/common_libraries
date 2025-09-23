@@ -1,7 +1,7 @@
 import transformers
 
 class MyEarlyStoppingCallback(transformers.TrainerCallback):
-    def __init__(self, metric_name,early_stopping_patience=5,lower_is_better=True):
+    def __init__(self, metric_name,early_stopping_patience,lower_is_better):
         self.metric_name = metric_name
         self.early_stopping_patience = early_stopping_patience
         self.lower_is_better = lower_is_better
