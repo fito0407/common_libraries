@@ -16,7 +16,7 @@ class MyEarlyStoppingCallback(transformers.TrainerCallback):
 
         if self.best_metric is None:
             self.best_metric = current_metric
-        elif (self.lower_is_better & current_metric < self.best_metric)|(~self.lower_is_better & current_metric > self.best_metric):
+        elif (self.lower_is_better & (current_metric < self.best_metric))|(~self.lower_is_better & (current_metric > self.best_metric)):
             self.best_metric = current_metric
             self.patience_counter = 0
         else:
